@@ -251,9 +251,14 @@ def test_fit_docstring_attributes(name, Estimator):
     if Estimator.__name__ == 'AffinityPropagation':
         est.random_state = 63
 
-    # FIXME: TO BE REMOVED for 1.1 (avoid FutureWarning)
-    if Estimator.__name__ == 'NMF':
-        est.init = 'nndsvda'
+    # FIXME: TO BE REMOVED for 1.0 (avoid FutureWarning)
+    if Estimator.__name__ == 'TSNE':
+        est.learning_rate = 200.0
+        est.init = 'random'
+
+    # FIXME: TO BE REMOVED for 1.0 (avoid FutureWarning)
+    if Estimator.__name__ == 'AffinityPropagation':
+        est.random_state = 63
 
     X, y = make_classification(n_samples=20, n_features=3,
                                n_redundant=0, n_classes=2,
